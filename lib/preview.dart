@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:camera_n1/components/button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class PreviewImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 48, 47, 47),
+        backgroundColor: Color.fromRGBO(255, 65, 85, 1),
         title: const Text('Preview'),
       ),
       body: Center(
@@ -22,6 +23,17 @@ class PreviewImage extends StatelessWidget {
               image: FileImage(image),
               fit: BoxFit.fill,
             ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: button(Icons.cloud, Alignment.bottomRight)
+              ),
+            ],
           ),
         ),
       ),
